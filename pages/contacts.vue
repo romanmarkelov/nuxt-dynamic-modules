@@ -14,30 +14,15 @@
 
 <script>
 export default {
-  async beforeCreate() {
-
-    this.isRouterLeaving = false
-
-    if (!this.$store.hasModule('contacts')) {
-      const module = await import('../app/contacts.js');
-      this.$store.registerModule('contacts', module.default);
-    }
-  },
-
-  beforeRouteLeave(to, from, next) {
-    this.isRouterLeaving = true;
-    next();
-  },
-
-  beforeDestroy() {
-    if (this.isRouterLeaving) {
-      this.$store.unregisterModule('contacts');
-    }
+  meta: {
+    modules: {
+      contacts: () => import('~/app/contacts.js')
+    },
   },
 
   computed: {
     title() {
-      return this.$store.state.contacts?.title;
+      return this.$store.state.contacts.title;
     },
     commonState() {
       return this.$store.state.common;

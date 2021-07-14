@@ -39,4 +39,6 @@ export default {
   },
 
   store: true,
+
+  router: { middleware: ['dynamicModule'] },
 }
