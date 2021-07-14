@@ -1,8 +1,14 @@
 <template>
   <div>
+    <nav>
+      <NuxtLink to="/">Home</NuxtLink>
+      <NuxtLink to="/about">About</NuxtLink>
+      <NuxtLink to="/contacts">Contacts</NuxtLink>
+    </nav>
     <Nuxt />
   </div>
 </template>
+
 
 <style>
 html {
