@@ -36,5 +36,8 @@ export default {
 
      this.fetchNews('https://jsonplaceholder.typicode.com/users')
   },
+  beforeDestroy() {
+    this.$store.unregisterModule('News');
+  }
 }
 </script>

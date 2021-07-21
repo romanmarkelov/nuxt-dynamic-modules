@@ -23,6 +23,10 @@ export default {
   computed: {
     ...mapState(['common']),
     ...mapState('Contacts', ['title']),
+  },
+
+  beforeDestroy() {
+    this.$store.unregisterModule('Contacts');
   }
 }
 </script>

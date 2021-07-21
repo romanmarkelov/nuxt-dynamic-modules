@@ -14,6 +14,7 @@
     "inversify": "^5.1.1",
     "lodash": "^4.17.21",
     "nuxt": "^2.14.12",
+    "nuxt-route-meta": "^2.1.3",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {}

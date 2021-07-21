@@ -31,7 +31,11 @@ const registerDynamicStoreModule = async ({
  * @param {VuexStore} store
  * @param {VueRoute} route
  */
-export default async function registerDynamicStorePlugin({ app, store, route }) {
+export default async function registerDynamicStorePlugin({
+  app,
+  store,
+  route
+}) {
   if (process.server) {
     app.router.onReady(async () => {
       const loadRouteComponents = app.router.getMatchedComponents();
@@ -50,11 +54,26 @@ export default async function registerDynamicStorePlugin({ app, store, route }) 
 
   if (!process.server) {
     const { storeName } = route.meta.find(el => el.hasOwnProperty("storeName"));
-    await registerDynamicStoreModule({
-      types: TYPES,
-      container,
-      store,
-      storeName
+    if (storeName) {
+      await registerDynamicStoreModule({
+        types: TYPES,
+        container,
+        store,
+        storeName
+      });
+    }
+
+    app.router.beforeEach(async (to, from, next) => {
+      if (to.meta.storeName && !store.hasModule(to.meta.storeName)) {
+        await registerDynamicStoreModule({
+          types: TYPES,
+          container,
+          store,
+          storeName: to.meta.storeName
+        });
+      }
+
+      next();
     });
   }
-};
+}

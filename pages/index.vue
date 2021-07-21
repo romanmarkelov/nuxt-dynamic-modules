@@ -12,6 +12,9 @@
 
 <script>
 export default {
+  meta: {
+    storeName: undefined,
+  },
 
   computed: {
     commonState() {

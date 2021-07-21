@@ -31,6 +31,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'nuxt-route-meta',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
