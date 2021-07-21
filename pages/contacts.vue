@@ -4,7 +4,7 @@
         {{ title }}
       </h1>
       <p>
-        Common state: {{ commonState }}
+        Common state: {{ common }}
       </p>
       <p>
         State: {{ title }}
@@ -13,20 +13,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   meta: {
     modules: {
-      contacts: () => import('~/app/contacts.js')
+      Contacts: 'Contacts',
     },
   },
 
   computed: {
-    title() {
-      return this.$store.state.contacts.title;
-    },
-    commonState() {
-      return this.$store.state.common;
-    }
+    ...mapState(['common']),
+    ...mapState({
+      title: state => state.Contacts.title
+    }),
   }
 }
 </script>

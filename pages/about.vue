@@ -16,13 +16,13 @@
 export default {
   meta: {
     modules: {
-      about: () => import('~/app/about.js')
+      About: 'About'
     },
   },
 
   computed: {
     title() {
-      return this.$store.state.about.title;
+      return this.$store.state.About.title;
     },
     commonState() {
       return this.$store.state.common;

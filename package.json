@@ -9,8 +9,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12"
+    "inversify": "^5.1.1",
+    "lodash": "^4.17.21",
+    "nuxt": "^2.14.12",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {}
 }
