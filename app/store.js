@@ -1,9 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+
 Vue.use(Vuex);
 
-export const createStore = () => {
+export const createStore = (ctx) => {
   return new Vuex.Store({
     state: {
       common: new Date()

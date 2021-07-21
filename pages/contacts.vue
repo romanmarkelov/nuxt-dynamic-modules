@@ -17,16 +17,12 @@ import { mapState } from 'vuex';
 
 export default {
   meta: {
-    modules: {
-      Contacts: 'Contacts',
-    },
+    storeName: 'Contacts',
   },
 
   computed: {
     ...mapState(['common']),
-    ...mapState({
-      title: state => state.Contacts.title
-    }),
+    ...mapState('Contacts', ['title']),
   }
 }
 </script>

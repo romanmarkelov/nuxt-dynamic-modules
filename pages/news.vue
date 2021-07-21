@@ -20,20 +20,14 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
+  storeName: 'OfferSearch',
   meta: {
-    modules: {
-      News: 'News'
-    },
+    storeName: 'News',
   },
 
   computed: {
     ...mapState(['common']),
-    ...mapState({
-      title: state => state.News.title
-    }),
-    ...mapState({
-      news: state => state.News.news
-    }),
+    ...mapState('News', ['news', 'title']),
   },
   methods: {
     ...mapActions('News', ['fetchNews']),
